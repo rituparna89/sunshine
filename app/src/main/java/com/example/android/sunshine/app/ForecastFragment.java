@@ -4,6 +4,7 @@ package com.example.android.sunshine.app;
  * Created by rituparna on 5/17/15.
  */
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -96,6 +97,9 @@ public class ForecastFragment extends Fragment {
                 Log.v("test","got int");
                 Toast toast = Toast.makeText(getActivity(),mForecastAdapter.getItem(position).toString(),Toast.LENGTH_SHORT);
                 toast.show();
+                Intent detailIntent = new Intent(getActivity(),DetailActivity.class);
+                detailIntent.putExtra(Intent.EXTRA_TEXT,mForecastAdapter.getItem(position).toString());
+                startActivity(detailIntent);
             }
         });
         return rootView;
