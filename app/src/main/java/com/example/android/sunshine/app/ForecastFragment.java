@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -92,7 +93,9 @@ public class ForecastFragment extends Fragment {
         listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 
+                Log.v("test","got int");
+                Toast toast = Toast.makeText(getActivity(),mForecastAdapter.getItem(position).toString(),Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
         return rootView;
